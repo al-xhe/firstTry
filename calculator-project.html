@@ -1,0 +1,156 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      body{
+        font:Arial;
+        background-color: black;
+        color:white;
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .numbers{
+        background-color: rgb(71, 70, 70);
+        border:none;
+        width:50px;
+        height:50px;
+        border-radius: 30px;
+        color:white;
+        font-weight: bold;
+        padding:10px 5px;
+      }
+
+      .shenja{
+        background-color: orange;
+        color:white;
+        font-weight: bold;
+        width:50px;
+        height:50px;
+        border-radius: 30px;
+      }
+    </style>
+ </head>
+ <body>
+
+  <p class = "calculate"></p>
+    <p>
+    <button onclick="
+    updateCalculation('1');
+    "class="numbers">1</button>
+
+<button onclick="
+  updateCalculation('2');
+"class="numbers">2</button>
+
+<button onclick="
+  updateCalculation('3');
+"class="numbers">3</button>
+
+<button onclick="
+  updateCalculation(' + ');
+"class="shenja">+</button>
+</p>
+
+<p>
+    <button onclick="
+      updateCalculation('4');
+        "class="numbers">4</button>
+
+<button onclick="
+  updateCalculation('5');
+    "class="numbers">5</button>
+
+<button onclick="
+  updateCalculation('6');
+    "class="numbers">6</button>
+
+<button onclick="
+  updateCalculation(' - ');
+    "class="shenja">-</button>
+</p>
+
+<p>
+    <button onclick="
+  updateCalculation('7');
+    "class="numbers">7</button>
+
+<button onclick="
+  updateCalculation('8');
+    "class = "numbers">8</button>
+
+<button onclick="
+  updateCalculation('9');
+    "class = "numbers">9</button>
+
+<button onclick="
+  updateCalculation(' * ');
+    "class="shenja">*</button>
+    </p>
+
+    <p>
+        <button onclick="
+        updateCalculation('0');
+      "class = "numbers">0</button>
+
+      <button onclick="
+        updateCalculation('.');
+      "class = "numbers">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        
+        displayCalculation();
+
+localStorage.setItem('calculation', calculation);
+"class="numbers">=</button>
+
+<button onclick = "
+updateCalculation(' / ');
+"class= "shenja">/</button>
+</p>
+
+<p>
+    <button onclick = "
+        calculation = '';
+        displayCalculation();
+
+localStorage.setItem('calculation', calculation);
+"class = "numbers">Clear</button>
+</p>
+
+<script>
+    let calculation = localStorage.getItem('calculation') || '';
+
+    displayCalculation();
+
+    function updateCalculation(value) {
+calculation += value;
+
+displayCalculation();
+
+localStorage.setItem('calculation', calculation);
+    }
+
+function displayCalculation(){
+    document.querySelector('.calculate')
+    .innerHTML = calculation;
+
+}
+    
+
+    
+  
+    //Creating a function in order to reuse this code
+</script>
+ </body>
+ </html>
+ 

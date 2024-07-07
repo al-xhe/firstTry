@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+</head>
+<style>
+
+.Input{
+   font-size: 15px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 15px;
+   padding-right: 10px;
+   height:15px;
+}
+
+.calculate-button{
+    
+background-color: green;
+color:white;
+border:none;
+height:37px;
+width: 100px;
+cursor:pointer;
+}
+
+</style>
+<!--Creating a cart quantity-->
+
+<body>
+    <!--learning some shortcuts of writing variables.
+    += 2 (variable = variable + 2)
+    -= 2 (variable = variable - 2)
+    *= 2 (variable = variable * 2)
+    /= 2 (variable = variable / 2)
+    ++ (variable = variable + 1) 
+    -- (variable = variable - 1)-->
+
+    <button onclick="
+        console.log(`Cart Quantity: ${cartQuantity}`);
+        "> Show Quantity</button>
+
+    <button onclick="
+   updateCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+    updatedCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+    updatedCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+updatedCartQuantity(-2);
+">-2</button>
+
+    <button onclick="
+updatedCartQuantity(-3);
+">-3</button>
+
+    <button onclick="
+updatedCartQuantity(-1);
+">Remove from cart</button>
+
+    <button onclick="
+    cartQuantity =  0;
+    console.log('Cart was reset');
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="Input Input"
+    onkeydown = "
+     handleCostKeydown(event); 
+     "> <!--up to this brackets  and type event -->
+    <button onclick="
+    calculateTotal();
+    "class="calculate-button">Calculate</button>
+
+<!--onkeydown ="" runs js when we press a key down on our keyboard-->
+    
+<!-- onclick & onkeydown are event listeners they check
+for events and runs js when those events happen -->
+<p class = "Cost
+"></p>
+
+    <script>
+
+String(25) //the built-in string function will convert a value into a string
+console.log('25' - 5); // Special Behaviour of strings 
+//if a string only contains a number and we substract / mutltiply or divide
+// JS will automatically convert this string into a number
+// it is not recommanded to do math using strings bc adding works differently
+console.log('25' + 5);
+        function handleCostKeydown(event){ //in order to save sth inside this parameter we go up 
+            if(event.key === 'Enter'){
+        calculateTotal();
+            }
+
+        }
+//Window Object represents the browser
+window.document  //everything that is inside the browser is inside the window
+window.console.log('window'); //it will give us the same thing as console.log
+window.alert
+//we don't write window in our code bc the window object has a shortcut
+//we can just type document or console and JS will automatically add the window. for us
+
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('Input');
+           let cost = Number(inputElement.value); //putting a txt inside a text box in input elements they don't 
+            //have an innerHTML so we use the .value element 
+       // NUmber function takes whatever's btw the brackets and manually converts it
+       //into a number
+
+       // whenever we get a value from the DOM the value will be a string
+       //so if we want to do math with it we need to manually convert it with the number function
+
+
+
+
+        //checking if the cost is under 40$ if it is we'll add 10$
+if(cost < 40){
+    cost = cost + 10;
+}
+
+document.querySelector('.Cost') 
+.innerHTML = `$${cost};`
+    }
+
+
+        // when we want to insert a value into a string we're going to use a template string.
+        let cartQuantity = 0;
+
+        function updatedCartQuantity(change) {
+            if (cartQuantity + change > 10) {
+                alert('The cart is full!');
+                return;
+            }
+
+            if (cartQuantity + change < 0) {
+                alert('Not enough items in the cart!');
+                return;
+            }
+            cartQuantity += change;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        }
+
+        //camelCase - we combine words together and capitalize every word except the first one.
+
+        //PascalCase - is the same as camelcase except in this case we capitalize both the first and the other words.
+
+        //kebab-case - here we keep the words in lowercases and combine them with a dash. It doesn't work in JS because the dash (-) is already a minus simbol.
+        //we use it in HTML and CSS also in our file names.
+
+        //snake_case - we keep the words lowercase and combine them with an underscore( _ ) it's not really used in JS.
+
+        const object = {
+            name: 'basketball',
+            price: 2095
+        };
+        console.log(object);
+
+        //using dot notation to incrise price
+        object.price += 500;
+        console.log(object);
+
+
+
+        //using bracket notion to add a property
+        object['delivery-time'] = '3 days';
+        console.log(object);
+
+        //comparingn price of 2 products return the product that is less expensive.
+        function comparePrice(product1, product2) {
+            if (product1.price < product2.price) {
+                return product1;
+            } else {
+                return product2;
+            }
+        }
+
+        function isSameProduct(product1, product2) {
+            if (
+                product1.name === product2.name &&
+                product1.price === product2.price
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        const product1 = {
+            name: 'basketball',
+            price: 2095
+        };
+
+        const product2 = {
+            name: 'basketball',
+            price: 2595
+        };
+
+        const product3 = {
+            name: 'ball',
+            price: 95
+        };
+
+        console.log(comparePrice(product1, product2));
+
+        console.log(isSameProduct(product1, product2));
+        console.log(isSameProduct(product1, product3));
+        console.log(isSameProduct(product3, product2));
+    
+    
+    
+    
+    //Event listeners beside onclick and onkeydown
+    // onscr5oll = scrolling
+    // onmouseenter = hovering over
+    // onmouseleave = stop hovering over
+    
+    
+    </script>
+</body>
+
+</html>
