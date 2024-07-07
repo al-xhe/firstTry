@@ -1,0 +1,86 @@
+<!--Ushtrimi 17-->
+
+<head>
+    <h1>Travel reservation form</h1><br>
+    <h3>*denotes mandatory</h2><br>
+        <style>
+            body,h1,h3,label,input,select{
+                margin: 0;
+                padding: 0;
+            }
+            h1{
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            h3{
+                font-size: 16px;
+                margin-bottom: 20px;
+                color:red;
+            }
+            form{
+                margin:20px;
+            }
+            label{
+                display: block;
+                margin-bottom: 5px;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="date"],
+            select{
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #151010;
+                border-radius: 4px;
+              }
+              input[type="radio"]{
+                margin-right: 5px;
+                margin-bottom: 10px;
+              }
+              input[type="submit"]{
+                padding: 10px 20px;
+                background-color: bisque;
+                color: rgb(10, 10, 10);
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              }
+              input[type="submit"]:hover{
+                background-color: rgb(167, 32, 8);
+              }
+
+        </style>
+    </head>
+    
+    <body>
+    <form>
+    <label>Full Name*:</label><br>
+    <input type="text" required placeholder="FirstName LastName"><br>
+    <label>Email*:</label><br>
+    <input type="email" required placeholder= "Email" ><br>
+    <label for="tour package">Select tour package*:</label><br>
+      <select name="select" id="select">
+        <option value="one">One</option>
+        <option value="two">Two</option>
+        </select><br>
+    <label>Arrival date*:</label><br>
+                <input type="date"><br>           
+    <label>Number of persons*:</label><br>
+    <input type="text"><br>
+    <label>What would you want to avail?*:</label><br>
+    <label>Boarding</label><input type="checkbox"><br>
+    <label>Fooding</label><input type="checkbox"><br>
+    <label>Sight seeing</label><input type="checkbox"><br>
+    <label>Discount coupon code*:</label><br>
+    <input type="text"><br>
+    <label>Terms and Conditions*:</label><br>
+                <input type="radio" for="" id=""> <label>I Agree</label>
+                <input type="radio"> <label>I Disagree</label><br>
+    <input type="submit" value="Complete Reservation" id="">
+    
+    
+    </form>
+    </body>
+    </html>
+      
